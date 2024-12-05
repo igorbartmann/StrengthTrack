@@ -1,0 +1,10 @@
+c:\Dev\StrengthTrack\StrengthTrackDatabase\bin\Debug\StrengthTrackDatabase.dacpac
+c:\Dev\StrengthTrack\StrengthTrackDatabase\obj\Debug\StrengthTrackDatabase.sqlproj.AssemblyReference.cache
+c:\Dev\StrengthTrack\StrengthTrackDatabase\obj\Debug\Model.xml
+c:\Dev\StrengthTrack\StrengthTrackDatabase\obj\Debug\refactor.xml
+c:\Dev\StrengthTrack\StrengthTrackDatabase\obj\Debug\postdeploy.sql
+c:\Dev\StrengthTrack\StrengthTrackDatabase\obj\Debug\predeploy.sql
+c:\Dev\StrengthTrack\StrengthTrackDatabase\obj\Debug\StrengthTrackDatabase.dll
+c:\Dev\StrengthTrack\StrengthTrackDatabase\obj\Debug\StrengthTrackDatabase.pdb
+c:\Dev\StrengthTrack\StrengthTrackDatabase\bin\Debug\StrengthTrackDatabase.dll
+c:\Dev\StrengthTrack\StrengthTrackDatabase\bin\Debug\StrengthTrackDatabase.pdb

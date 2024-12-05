@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "4rzffG9YwIg=",
+  "success": true,
+  "projectFilePath": "c:\\Dev\\StrengthTrack\\StrengthTrackDatabase\\StrengthTrackDatabase.sqlproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\I751273\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\I751273\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net45\\1.0.0\\microsoft.netframework.referenceassemblies.net45.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

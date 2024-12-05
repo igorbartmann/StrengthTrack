@@ -1,0 +1,50 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Dev\\StrengthTrack\\StrengthTrackDatabase\\StrengthTrackDatabase.sqlproj": {}
+  },
+  "projects": {
+    "c:\\Dev\\StrengthTrack\\StrengthTrackDatabase\\StrengthTrackDatabase.sqlproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Dev\\StrengthTrack\\StrengthTrackDatabase\\StrengthTrackDatabase.sqlproj",
+        "projectName": "StrengthTrackDatabase",
+        "projectPath": "c:\\Dev\\StrengthTrack\\StrengthTrackDatabase\\StrengthTrackDatabase.sqlproj",
+        "packagesPath": "C:\\Users\\I751273\\.nuget\\packages\\",
+        "outputPath": "c:\\Dev\\StrengthTrack\\StrengthTrackDatabase\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\I751273\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net45"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net45": {
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}
