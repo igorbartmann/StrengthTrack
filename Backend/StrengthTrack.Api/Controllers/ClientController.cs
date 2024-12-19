@@ -31,11 +31,30 @@ public class ClientController : ControllerBase
     {
         var clients = await (
             from c in _context.Clients
+			orderby c.Name
             select new ClientSimpleViewModel(c.Id, c.Name, c.Cpf)
         ).AsNoTracking()
         .ToListAsync();
 
         return Ok(clients);
+    }
+
+    [HttpGet("AverageOfClients")]
+    public async Task<IActionResult> GetAverageOfClients()
+    {
+        var clients = await (
+            from c in _context.Clients.Include(c => c.Sessions).ThenInclude(s => s.Results)
+            select c
+        ).AsNoTracking()
+        .ToListAsync();
+
+        var allSessions = clients.SelectMany(c => c.Sessions);
+
+        var averageForceOfClients = allSessions.SelectMany(s => s.Results).Average(r => r.Value);
+        var averageSessionsOfClients = (double)allSessions.Count() / clients.Count;
+
+        var averageOfClients = new AverageOfClientsViewModel((int)averageForceOfClients, averageSessionsOfClients);
+        return Ok(averageOfClients);
     }
 
     [HttpGet("{id:int}")]
@@ -62,7 +81,7 @@ public class ClientController : ControllerBase
                 results.Add(new ResultViewModel(result.Id, result.SessionId, result.Value));
             }
 
-            sessions.Add(new SessionViewModel(session.Id, session.ClientId, sessions.Count + 1, (int)results.Average(r => r.Value), session.Date, results));
+            sessions.Add(new SessionViewModel(session.Id, session.ClientId, sessions.Count + 1, (int)(results.Count > 0 ? results.Average(r => r.Value) : 0), session.Date, results));
         }
 
         var clientViewModel = new ClientViewModel(client.Id, client.Name, client.Cpf, sessions);
@@ -82,7 +101,7 @@ public class ClientController : ControllerBase
             return BadRequest($"The propertie \"{nameof(inputModel.Cpf)}\" is invalid! The cpf must have 11 digits.");
         }
 
-        var isClientAlreadyRegistered = await _context.Clients.AnyAsync(c => c.Cpf == inputModel.Cpf);
+        var isClientAlreadyRegistered = await _context.Clients.AsNoTracking().AnyAsync(c => c.Cpf == inputModel.Cpf);
         if (isClientAlreadyRegistered)
         {
             return BadRequest($"There is already a registered user this CPF ({inputModel.Cpf}).");
@@ -133,11 +152,11 @@ public class ClientController : ControllerBase
     {
         if (_currentClientId != 0)
         {
-            var client = await _context.Clients.FirstAsync(c => c.Id == _currentClientId);
+            var client = await _context.Clients.AsNoTracking().FirstAsync(c => c.Id == _currentClientId);
             return BadRequest($"The current measurement corresponds to client: \"{client.Name}\" ({client.Cpf}). You must end this measurement before starting a new one.");
         }
 
-        var isClientRegistered = await _context.Clients.AnyAsync(c => c.Id == id);
+        var isClientRegistered = await _context.Clients.AsNoTracking().AnyAsync(c => c.Id == id);
         if (isClientRegistered)
         {
             HiveMqResponse hiveMq = ConnectToClusterHiveMq();
@@ -165,7 +184,7 @@ public class ClientController : ControllerBase
         
         if (id != _currentClientId)
         {
-            var currentClient = await _context.Clients.FirstAsync(c => c.Id == _currentClientId);
+            var currentClient = await _context.Clients.AsNoTracking().FirstAsync(c => c.Id == _currentClientId);
             return BadRequest($"The current measurement corresponds to another client: \"{currentClient.Name}\" ({currentClient.Cpf}). You must end his measurement before starting a new one."); 
         }
 
