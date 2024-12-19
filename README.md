@@ -25,7 +25,7 @@ FRONT (SUBSCRIBE)
 # TOPICS
 - NAME: topic_sensor_loadcell
 
-# RUN APPLICATIONS:
+# RUN APPLICATIONS
 - Wokwi: access the website and run the project manually by clicking the start button
 - Backend: dotnet run --project <path_to_strengthtrack.api>
 - Frontend: ng serve --open
