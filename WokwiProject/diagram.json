@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Igor Bartmann",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 163.2, "left": -4.76, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 160,
+      "left": 168.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": 12.2,
+      "left": -55,
+      "attrs": { "type": "50kg" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-48", "v192.1", "h-144", "v-28.8", "h9.6" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-38.4", "v29" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-57.6", "v-9.3" ] ],
+    [ "cell1:GND", "esp:GND.1", "black", [ "h-38.4", "v-0.3" ] ],
+    [ "cell1:DT", "esp:13", "green", [ "h-28.8", "v277.9" ] ],
+    [ "cell1:SCK", "esp:14", "green", [ "h-19.2", "v239.2" ] ],
+    [ "cell1:VCC", "esp:3V3", "red", [ "h-9.6", "v124.8" ] ]
+  ],
+  "dependencies": {}
+}
