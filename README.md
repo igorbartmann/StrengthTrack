@@ -25,12 +25,7 @@ FRONT (SUBSCRIBE)
 # TOPICS
 - NAME: topic_sensor_loadcell
 
-# PENDING
-6) Criar Projeto Angular contendo:
-- Página principal (cabeçalho e rodapé) na qual internamente será exibnidas as demais páginas.
-- Session (seleciona um client + botão para criar novo e editar selecionado (abre modal), botão para iniciar, botão para parar e tabela para mostrar resultados em tempo real).
-- Dashboard (seleciona um cliente existente e exibe um gráfico de medição média por sessão + resultado de suas medições em uma tabela).
-
-7) Testar comunicação Wokiwi-HiveMQ-Front-Back.
-
-8) Implementar subscribe do front no HiveMQ e testar funcionamento de exibição em tempo real (Wokiwi-HiveMQ-Back-Front).
+# RUN APPLICATIONS:
+- Wokwi: access the website and run the project manually by clicking the start button
+- Backend: dotnet run --project <path_to_strengthtrack.api>
+- Frontend: ng serve --open
